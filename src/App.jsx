@@ -13,7 +13,7 @@ import BlogDetailPage from './pages/General/BlogDetailPage'
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/FionWeb">
       <Routes>
         {/* heading */}
         <Route path="/" element={<HomePage />} />
