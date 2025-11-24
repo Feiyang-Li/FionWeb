@@ -1,0 +1,149 @@
+.certSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.emptyState {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.certCard {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.certHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.certName {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.certIssuer {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.certMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.domainPill {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #d0d0d0;
+  background-color: #f9fafb;
+}
+
+.statusBadge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: capitalize;
+}
+
+.statusCompleted {
+  background-color: #e0fbe5;
+  border: 1px solid #4ade80;
+}
+
+.statusInProgress {
+  background-color: #fef3c7;
+  border: 1px solid #facc15;
+}
+
+.certDescription {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.certDatesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.dateItem {
+  padding: 2px 6px;
+  border-radius: 999px;
+  background-color: #f9fafb;
+}
+
+.sectionLabel {
+  font-weight: 500;
+  margin-right: 4px;
+  font-size: 0.8rem;
+}
+
+.certSkills,
+.certProjects,
+.certTags {
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+.skillChipRow,
+.projectChipRow,
+.tagChipRow {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.skillChip,
+.projectChip,
+.tagChip {
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid #e0e0e0;
+  background: #f9fafb;
+}
+
+.tempLoading {
+  font-size: 0.9rem;
+}
+
+.tempError {
+  font-size: 0.9rem;
+}
+
+.certCard:hover{
+    background-color: var(--fontB-color-primary);
+    transition-duration: 0.25s;
+}

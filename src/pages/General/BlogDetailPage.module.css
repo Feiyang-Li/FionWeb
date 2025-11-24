@@ -1,0 +1,138 @@
+/* Wrapper */
+.wrapper {
+    max-width: 820px;
+    margin: 80px auto 60px;
+    padding: 0 20px;
+    font-family: "Inter", serif;
+}
+
+/* Hero Image */
+.heroContainer {
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.heroImage {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Article Container */
+.article {
+    margin: 0 auto;
+}
+
+/* Category Label */
+.category {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+/* Title */
+.title {
+    font-size: 36px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* Summary */
+.summary {
+    font-size: 18px;
+    opacity: 0.85;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+/* Meta Row */
+.metaRow {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+.pinned {
+    font-weight: 600;
+    color: #f5b342;
+}
+
+.divider {
+    margin: 24px 0 24px;
+    opacity: 0.15;
+}
+
+/* Tags */
+.tagContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.tag {
+    padding: 5px 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    font-size: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Content */
+.content {
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.markdownFallback {
+    white-space: pre-wrap;
+    line-height: 1.7;
+}
+
+/* Related Projects */
+.relatedSection {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 24px;
+}
+
+.relatedHeader {
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.relatedList {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.relatedList li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.relatedList a {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+}
+
+.backLink {
+    font-size: 14px;
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Error */
+.error {
+    color: #ff6b6b;
+}

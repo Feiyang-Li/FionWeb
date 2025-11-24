@@ -1,0 +1,44 @@
+:root {
+
+    /* Font size, standardlization */
+
+    --font-size-h1: 40px;
+    --font-size-h2: 32px;
+    --font-size-h3: 24px;
+    --font-size-xxxxlarge: 48px;
+    --font-size-xxxlarge: 40px;
+    --font-size-xxlarge: 32px;
+    --font-size-xlarge: 24px;
+    --font-size-large: 18px;
+    --font-size-main: 16px;
+    --font-size-medium: 16px;
+    --font-size-small: 14px;
+    --font-size-xsmall: 12px;
+    --font-size-xxsmall: 10px;
+    /* Text color, standardlization */
+    /* A method: white background with black text */
+    --fontA-color-primary: #1A1A1A;
+    --fontA-color-secondary: #555555;
+    --fontA-color-tertiary: #888888;
+    --fontA-color-disabled: #B5B5B5;
+    --A-border-color: #E5E5E5;
+    --A-background-color: #FAFAFA;
+    --A-background-darkerColor: #efefef;
+
+    /* B method: dark background with white text */
+    --fontB-color-primary: #EDEDED;
+    --fontB-color-secondary: #B5B5B5;   
+    --fontB-color-tertiary: #8A8A8A;
+    --fontB-color-disabled: #555555;
+    --B-border-color: #2A2A2A;
+    --B-background-color: #111111;
+    --B-surface-color: #1A1A1A;
+    --B-accent-color: #0D0D0D;
+
+    /* Transparent stuff */
+    --DarkGrey-Background-transparent: rgba(100, 100, 100, 0.6); 
+    --WhiteGrey-Background-transparent: rgba(250, 250, 250, 0.6);
+
+    /* box-shadow */
+    --normal-box-shadow: 0 1px 20px rgba(105, 105, 105, 0.687);
+}

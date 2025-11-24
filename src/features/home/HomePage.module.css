@@ -1,0 +1,205 @@
+.HomePageContainer {
+    padding: 0;
+    margin: 0;
+}
+
+.topSection {
+    height: 150vh;
+    width: 100%;
+    background-image: url("/sky minimum.jpg");
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+.overlay {
+    height: 150vh;
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.topSectionContent {
+    position: relative;
+    z-index: 2;
+}
+
+.navBarWrapper{
+    position:relative;
+    margin-top: -70px;
+    z-index: 2;
+}
+
+.navBar {
+    /* This got replace the NavBar component */
+}
+
+.ballonImage{
+    height: 200px;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    z-index: 3;
+    pointer-events: none;
+}
+.ballonImage img{
+    height: 100%;
+    width: auto;
+}
+
+.topSectionContent{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.topCenter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 3;
+    gap: 90px;
+}
+.topCenter h1 {
+    font-size: var(--font-size-xxxxlarge);
+    color: var(--fontB-color-primary);
+    font-weight: 600;
+}
+
+.description{
+    font-size: var(--font-size-xlarge);
+    height: auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: var(--fontB-color-primary);
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0; 
+    font-weight: 400;
+}
+
+
+.bottomQuote{
+    font-size: var(--font-size-large);
+    color: var(--fontB-color-primary);
+    width: 50vh;
+    flex-grow: 1;
+    font-style: italic;
+}
+.softwareSection, .dataSection, .financeSection{
+    height: 100vh;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.softwareImage, .dataImage, .sectionImage{
+    height: 100%;
+    flex: 1;
+}
+
+.softwareActualImage, .dataActualImage, .sectionActualImage{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.softwareText, .dataText, .sectionText{
+    height: 100%;
+    flex: 1;
+}
+
+.innerContainer{
+    height: 100%;
+    padding: 0 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.softwareTextTitle, .dataTextTitle, .sectionTextTitle{
+    font-size: var(--font-size-xlarge);
+    color: var(--fontA-color-primary);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.SoftwareDevShortLine, .DataDevShortLine, .sectionShortLine{
+    margin-bottom: 20px;
+}
+
+.softwareTexttext, .dataTexttext, .sectionTexttext{
+    margin: 10px 10px;
+    height: auto;
+    line-height: 1.6;
+}
+
+.contactNowButton{
+    width: 60%;
+    height: 40px;
+    text-align: center;
+    background-color: var(--A-background-darkerColor);
+    color: var(--fontA-color-secondary);
+    border: var(--A-border-color);
+    border-radius: 5px;
+    font-size: var(--font-size-large);
+    cursor: pointer;
+    margin-top: 30px;
+    align-self: center;
+    font-weight: 400;
+}
+
+.contactNowButton:hover{
+    background-color: var(--A-border-color);
+    color: var(--fontA-color-primary);
+}
+
+
+.softwareLearnMoreButton, .dataLearnMoreButton, .sectionLearnMoreButton{
+    width: 60%;
+    height: 40px;
+    background-color: var(--fontB-color-disabled);
+    color: var(--fontB-color-secondary);
+    border: none;
+    border-radius: 5px;
+    font-size: var(--font-size-large);
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: center;
+    font-weight: 400;
+}
+.softwareLearnMoreButton:hover, .dataLearnMoreButton:hover, .sectionLearnMoreButton:hover{
+    background-color: var(--fontB-color-tertiary);
+    color: var(--fontB-color-primary);
+}
+
+.endingSection{
+    height: 70vh;
+    width: 100%;
+    background-image: url("/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg.webp");
+    background-size: cover;        
+    background-position: center;   
+    background-repeat: no-repeat; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.thebottombottomOne{
+    font-size: var(--font-size-large);
+    color: var(--fontB-color-primary);
+    width: 50vh;
+    font-style: italic;
+    height: auto;
+    background: rgba(0, 0, 0, 0.308);
+    padding: 20px;
+}
+
+

@@ -1,0 +1,49 @@
+.navbar{
+    font-size:var(--font-size-xlarge);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10%;
+    position: sticky;
+    top: 0;
+    padding: 10px 10px;
+    z-index: 100;
+    background: var(--DarkGrey-Background-transparent);  
+    backdrop-filter: blur(10px);           
+    -webkit-backdrop-filter: blur(10px);   
+    box-shadow: var(--normal-box-shadow);
+    margin: 0;
+    
+
+}
+
+.element {
+    text-decoration: none;
+    color: var(--fontB-color-primary);
+    padding: 6px 14px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: all 0.25s ease; 
+}
+
+.element:hover {
+    background: var(--WhiteGrey-Background-transparent);
+    color: var(--fontA-color-primary);
+}
+
+.EndElement{
+    background: var(--WhiteGrey-Background-transparent);
+    color: var(--fontA-color-primary);
+}
+.EndElement:hover {
+    background: var(--DarkGrey-Background-transparent);
+    color: var(--fontB-color-primary);
+}
+
+
+.groupElements{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}

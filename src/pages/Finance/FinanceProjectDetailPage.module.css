@@ -1,0 +1,165 @@
+/* Wrapper */
+.wrapper {
+    max-width: 900px;
+    margin: 80px auto 60px;
+    padding: 0 20px;
+    font-family: "Inter", sans-serif;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.domain {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.7;
+}
+
+.title {
+    font-size: 32px;
+    margin: 6px 0 12px;
+    font-weight: 600;
+}
+
+.summary {
+    opacity: 0.85;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.meta {
+    text-align: right;
+    opacity: 0.9;
+    font-size: 13px;
+}
+
+.meta span {
+    font-weight: 600;
+}
+
+.privateBadge {
+    margin-top: 8px;
+    padding: 3px 10px;
+    font-size: 11px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: rgb(255, 120, 120);
+}
+
+/* Sections */
+.divider {
+    margin: 30px 0;
+    opacity: 0.2;
+}
+
+.section {
+    margin-bottom: 32px;
+}
+
+.sectionTitle {
+    font-size: 20px;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+/* Tags */
+.tagContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Metrics table */
+.metricsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.metricKey {
+    font-weight: 600;
+    padding: 8px;
+    width: 50%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.metricValue {
+    padding: 8px;
+    opacity: 0.85;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Pills */
+.sectionGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 32px;
+}
+
+.pillContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pill {
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.25);
+    font-size: 12px;
+}
+
+/* Lists */
+.list {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+/* Markdown fallback */
+.markdownFallback {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 14px;
+    opacity: 0.95;
+    border-left: 3px solid rgba(255,255,255,0.15);
+    padding-left: 16px;
+}
+
+/* Attachments */
+.attachmentList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.attachment {
+    font-size: 14px;
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+.footer {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.backLink {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.error {
+    color: #ff6b6b;
+}

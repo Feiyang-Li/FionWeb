@@ -1,0 +1,127 @@
+.wrapper {
+    max-width: 900px;
+    margin: 80px auto 40px;
+    padding: 0 16px 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.headerMain {
+    flex: 2;
+}
+
+.domainLabel {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 4px;
+}
+
+.title {
+    font-size: 32px;
+    margin: 0 0 8px;
+}
+
+.summary {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.meta {
+    flex: 1;
+    font-size: 12px;
+    text-align: right;
+    opacity: 0.9;
+}
+
+.metaItem {
+    margin-bottom: 4px;
+}
+
+.metaLabel {
+    font-weight: 600;
+}
+
+.privateBadge {
+    margin-top: 6px;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.tags {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: flex-end;
+}
+
+.tag {
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 11px;
+}
+
+.content section {
+    margin-bottom: 24px;
+}
+
+.content h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.pillsSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pill {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 12px;
+}
+
+.markdownFallback {
+    white-space: pre-wrap;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.links a {
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.footer {
+    margin-top: 32px;
+    font-size: 14px;
+}
+
+.error {
+    color: #ff6b6b;
+}

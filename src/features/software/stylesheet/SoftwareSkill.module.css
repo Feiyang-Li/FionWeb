@@ -1,0 +1,127 @@
+.skillSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+
+.emptyState {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.skillCard {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.skillName {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.skillSubcategory {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.skillMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.levelBadge,
+.yearsBadge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #d0d0d0;
+  background-color: #f9fafb;
+}
+
+.skillDescription {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.skillKeywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.keywordChip {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+}
+
+.skillProjects,
+.skillCerts {
+  margin-top: 6px;
+  font-size: 0.8rem;
+}
+
+.sectionLabel {
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.projectList,
+.certList {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.projectChip,
+.certChip {
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid #e0e0e0;
+  background: #f9fafb;
+}
+
+/* Existing temp styles you already had */
+.tempLoading {
+  font-size: 0.9rem;
+}
+
+.tempError {
+  font-size: 0.9rem;
+}
+
+.skillCard:hover{
+    background-color: var(--fontB-color-primary);
+    transition-duration: 0.25s;
+}

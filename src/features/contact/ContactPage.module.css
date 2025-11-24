@@ -1,0 +1,195 @@
+.page {
+    position: relative;
+    min-height: calc(100vh - 60px); /* adjust if your NavBar height differs */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 16px 40px;
+    overflow: hidden;
+}
+
+/* Blurred background image */
+.page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image: url("starNightPic.jpg"); /* TODO: replace with your image path */
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    transform: scale(1.05); /* avoid blur edges */
+}
+
+/* Dark overlay on top of the blurred image */
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* Centers the card content */
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Main card */
+.card {
+    max-width: 640px;
+    width: 100%;
+    height: auto;
+    padding: 28px 24px 24px;
+    border-radius: 16px;
+    background: rgba(15, 15, 20, 0.85);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #f5f5f5;
+}
+
+/* Header row: avatar + name */
+.headerRow {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 16px;
+}
+
+.avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.name {
+    font-size: 24px;
+    margin: 0 0 4px;
+    font-weight: 600;
+}
+
+.title {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Intro text */
+.intro {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+/* Contact info grid */
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 24px;
+    margin-bottom: 20px;
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.7;
+    margin-bottom: 3px;
+}
+
+.valueLink {
+    font-size: 14px;
+    color: #f5f5f5;
+    text-decoration: none;
+    opacity: 0.95;
+    word-break: break-all;
+}
+
+.valueLink:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* Buttons */
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.primaryButton,
+.secondaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,
+        transform 0.1s ease;
+}
+
+.primaryButton {
+    background: #ffffff;
+    color: #111;
+    font-weight: 500;
+}
+
+.primaryButton:hover {
+    background: #e8e8e8;
+    transform: translateY(-1px);
+}
+
+.secondaryButton {
+    background: transparent;
+    color: #f5f5f5;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.secondaryButton:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
+}
+
+/* Footer note */
+.footerNote {
+    font-size: 12px;
+    opacity: 0.7;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 10px;
+    margin-top: 4px;
+}
+
+/* Error state if needed */
+.error {
+    color: #ff6b6b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .card {
+        padding: 22px 18px 18px;
+    }
+
+    .headerRow {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .infoGrid {
+        grid-template-columns: 1fr;
+    }
+}
