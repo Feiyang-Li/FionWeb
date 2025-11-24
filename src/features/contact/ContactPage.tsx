@@ -3,9 +3,7 @@ import styles from "./ContactPage.module.css";
 
 export default function ContactPage() {
     // TODO: replace with your actual Cloudinary image URL
-    const avatarUrl =
-        "_The_School_of_Athens__by_Raffaello_Sanzio_da_Urbino.jpg";
-
+    const avatarUrl = "_The_School_of_Athens__by_Raffaello_Sanzio_da_Urbino.jpg";
     return (
         <>
             <NavBar />
