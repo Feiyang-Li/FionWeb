@@ -48,7 +48,7 @@ export default function HomePage() {
             <NavBar className={styles.navBar}/>
             <div className={styles.softwareSection}>
                 <div className={styles.softwareImage}>
-                    <img className={styles.softwareActualImage} src="sky_with_code.png" alt="code in the sky"/> 
+                    <img className={styles.softwareActualImage} src="./sky_with_code.png" alt="code in the sky"/> 
                 </div>
                 <div className={styles.softwareText}>
                     <div className={styles.innerContainer}>
@@ -72,12 +72,12 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={styles.dataImage}>
-                    <img className={styles.dataActualImage} src="leftSkyImage.avif" alt="sky above image"/>
+                    <img className={styles.dataActualImage} src="./leftSkyImage.avif" alt="sky above image"/>
                 </div>
             </div>
             <div className={styles.financeSection}>
                 <div className={styles.sectionImage}>
-                    <img className={styles.sectionActualImage} src="night_sky_mountain.jpg" alt="night sky mountain"/>
+                    <img className={styles.sectionActualImage} src="./night_sky_mountain.jpg" alt="night sky mountain"/>
                 </div>
                 <div className={styles.sectionText}>
                     <div className={styles.innerContainer}>
