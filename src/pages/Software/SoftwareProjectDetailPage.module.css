@@ -271,6 +271,9 @@ ul {
     font-size: 14px;
 }
 ul li {
-    margin-bottom: 25px;
     line-height: 1.5;
+}
+
+.markdown{
+    white-space: inherit;
 }
