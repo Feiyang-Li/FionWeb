@@ -121,16 +121,28 @@
 /* Markdown styling */
 .markdown {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .markdown h1,
 .markdown h2,
 .markdown h3 {
-    font-size: 16px;
-    margin: 12px 0 6px;
+    margin-bottom: 6px;    
     font-weight: 600;
 }
+
+.markdown h1 {
+    font-size: 20px;       
+}
+
+.markdown h2 {
+    font-size: 18px;       
+}
+
+.markdown h3 {
+    font-size: 16px;
+}
+
 
 .markdown p {
     margin: 6px 0;
@@ -142,7 +154,7 @@
 }
 
 .markdown li {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .markdown strong {
@@ -216,20 +228,15 @@
 }
 
 .markdown {
-    line-height: 1.6;
-    font-size: 15px;
+    line-height: 1.5;
+    font-size: 14px;
     white-space: pre-wrap;
 }
 
 .markdown h2,
 .markdown h3,
 .markdown h4 {
-    margin-top: 20px;
     margin-bottom: 10px;
-}
-
-.markdown ul {
-    padding-left: 20px;
 }
 
 .markdown img {
@@ -248,3 +255,22 @@
     margin: 12px 0;
 }
 
+/* li difference hurting my eyes */
+.markdown ul {
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.markdown ul li {
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+
+ul {
+    padding-left: 20px;
+    font-size: 14px;
+}
+ul li {
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
