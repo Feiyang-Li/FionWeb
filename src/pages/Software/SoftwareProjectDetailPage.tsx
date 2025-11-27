@@ -6,11 +6,11 @@ import NavBar from "../../components/NavBar";
 import { fetchSoftwareProjBySlug } from "../../api/client";
 import type { SoftwareProject } from "../../types/softwareProjects";
 import styles from "./SoftwareProjectDetailPage.module.css";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize from "rehype-sanitize";
 
-// Optional: if you want markdown rendering, install react-markdown
-//   npm install react-markdown
-// and then uncomment this line:
-// import ReactMarkdown from "react-markdown";
 
 export default function SoftwareProjectDetailPage() {
     const { slug } = useParams<{ slug: string }>();
@@ -71,6 +71,8 @@ export default function SoftwareProjectDetailPage() {
         demo_url,
         status,
         tags,
+        images,
+        videos,
         start_date,
         end_date,
         created_at,
@@ -85,6 +87,7 @@ export default function SoftwareProjectDetailPage() {
         <>
             <NavBar />
             <div className={styles.wrapper}>
+                {/* HEADER */}
                 <header className={styles.header}>
                     <div className={styles.headerMain}>
                         <p className={styles.domainLabel}>Software Project</p>
@@ -93,44 +96,47 @@ export default function SoftwareProjectDetailPage() {
                     </div>
 
                     <div className={styles.meta}>
-                        {status && (
-                            <p className={styles.metaItem}>
-                                <span className={styles.metaLabel}>Status:</span> {status}
-                            </p>
-                        )}
-                        {role && (
-                            <p className={styles.metaItem}>
-                                <span className={styles.metaLabel}>Role:</span> {role}
-                            </p>
-                        )}
-                        {(displayStart || displayEnd) && (
-                            <p className={styles.metaItem}>
-                                <span className={styles.metaLabel}>Timeline:</span>{" "}
-                                {displayStart ?? "Unknown"} – {displayEnd}
-                            </p>
-                        )}
-                        {created && (
-                            <p className={styles.metaItem}>
-                                <span className={styles.metaLabel}>Created:</span> {created}
-                            </p>
-                        )}
-                        {isPrivate && (
-                            <p className={styles.privateBadge}>Private details (redacted)</p>
-                        )}
-                        {tags && tags.length > 0 && (
-                            <div className={styles.tags}>
-                                {tags.map((tag) => (
-                                    <span key={tag} className={styles.tag}>
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        )}
+                        <div className={styles.topMeta}>
+
+                            {status && (
+                                <p className={styles.metaItem}>
+                                    <span className={styles.metaLabel}>Status:</span> {status}
+                                </p>
+                            )}
+                            {(displayStart || displayEnd) && (
+                                <p className={styles.metaItem}>
+                                    <span className={styles.metaLabel}>Timeline:</span>{" "}
+                                    {displayStart ?? "Unknown"} – {displayEnd}
+                                </p>
+                            )}
+                            {created && (
+                                <p className={styles.metaItem}>
+                                    <span className={styles.metaLabel}>Created:</span> {created}
+                                </p>
+                            )}
+                            {isPrivate && (
+                                <p className={styles.privateBadge}>Private details (redacted)</p>
+                            )}
+
+
+                        </div>
+                        <div className={styles.bottomMeta}>
+                            {tags && tags.length > 0 && (
+                                <div className={styles.tags}>
+                                    {tags.map((tag) => (
+                                        <span key={tag} className={styles.tag}>
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
                     </div>
                 </header>
 
                 <main className={styles.content}>
-                    {/* Tech stack & architecture */}
+                    {/* Tech stack & architecture (pills, no tables) */}
                     {(tech_stack?.length || architecture?.length) && (
                         <section className={styles.pillsSection}>
                             {tech_stack && tech_stack.length > 0 && (
@@ -161,21 +167,46 @@ export default function SoftwareProjectDetailPage() {
                         </section>
                     )}
 
-                    {/* Description (markdown) */}
+                    {/* Role */}
+                    {role && (
+                        <section>
+                            <h2>Role</h2>
+                            <p className={styles.roleText}>{role}</p>
+                        </section>
+                    )}
                     {description_markdown && (
                         <section>
                             <h2>Overview</h2>
+                            <div className={styles.markdown}>
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    rehypePlugins={[rehypeRaw, rehypeSanitize]}
+                                    components={{
+                                        img: ({ src, alt }) => (
+                                            <img
+                                                src={src!}
+                                                alt={alt}
+                                                className={styles.markdownImage}
+                                            />
+                                        ),
+                                    }}
+                                >
+                                    {description_markdown}
+                                </ReactMarkdown>
+                            </div>
+                        </section>
+                    )}
 
-                            {/* If using ReactMarkdown: */}
-                            {/* 
-                            <ReactMarkdown className={styles.markdown}>
-                                {description_markdown}
-                            </ReactMarkdown> 
-                            */}
-
-                            {/* Fallback: plain text block */}
-                            <div className={styles.markdownFallback}>
-                                {description_markdown}
+                    {/* Images gallery */}
+                    {images && images.length > 0 && (
+                        <section>
+                            <h2>Project Screenshots</h2>
+                            <div className={styles.imageGrid}>
+                                {images.map((img) => (
+                                    <div key={img} className={styles.imageItem}>
+                                        <img src={img} alt={title} />
+                                    </div>
+                                ))}
                             </div>
                         </section>
                     )}
@@ -184,7 +215,7 @@ export default function SoftwareProjectDetailPage() {
                     {features && features.length > 0 && (
                         <section>
                             <h2>Key Features</h2>
-                            <ul>
+                            <ul className={styles.list}>
                                 {features.map((f, i) => (
                                     <li key={i}>{f}</li>
                                 ))}
@@ -196,9 +227,30 @@ export default function SoftwareProjectDetailPage() {
                     {challenges && challenges.length > 0 && (
                         <section>
                             <h2>Challenges & Learnings</h2>
-                            <ul>
+                            <ul className={styles.list}>
                                 {challenges.map((c, i) => (
                                     <li key={i}>{c}</li>
+                                ))}
+                            </ul>
+                        </section>
+                    )}
+
+                    {/* Videos (optional) */}
+                    {videos && videos.length > 0 && (
+                        <section>
+                            <h2>Videos</h2>
+                            <ul className={styles.list}>
+                                {videos.map((v, i) => (
+                                    <li key={i}>
+                                        <a
+                                            href={v}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className={styles.linkInline}
+                                        >
+                                            {v}
+                                        </a>
+                                    </li>
                                 ))}
                             </ul>
                         </section>

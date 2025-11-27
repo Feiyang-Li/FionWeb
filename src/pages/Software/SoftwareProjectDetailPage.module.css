@@ -4,6 +4,7 @@
     padding: 0 16px 40px;
 }
 
+/* Header */
 .header {
     display: flex;
     justify-content: space-between;
@@ -36,8 +37,16 @@
 .meta {
     flex: 1;
     font-size: 12px;
-    text-align: right;
     opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.topMeta, .bottomMeta {
+    width: fit-content;
+    height: auto;
+    text-align: left;
 }
 
 .metaItem {
@@ -71,6 +80,7 @@
     font-size: 11px;
 }
 
+/* Content sections */
 .content section {
     margin-bottom: 24px;
 }
@@ -80,6 +90,7 @@
     margin-bottom: 8px;
 }
 
+/* Tech stack / architecture pills */
 .pillsSection {
     display: flex;
     flex-wrap: wrap;
@@ -100,12 +111,84 @@
     font-size: 12px;
 }
 
-.markdownFallback {
-    white-space: pre-wrap;
-    line-height: 1.5;
+/* Role */
+.roleText {
     font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.95;
 }
 
+/* Markdown styling */
+.markdown {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+    font-size: 16px;
+    margin: 12px 0 6px;
+    font-weight: 600;
+}
+
+.markdown p {
+    margin: 6px 0;
+}
+
+.markdown ul {
+    padding-left: 20px;
+    margin: 6px 0;
+}
+
+.markdown li {
+    margin-bottom: 4px;
+}
+
+.markdown strong {
+    font-weight: 600;
+}
+
+.markdown code {
+    font-family: "Source Code Pro", monospace;
+    font-size: 13px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.markdown pre {
+    font-family: "Source Code Pro", monospace;
+    font-size: 13px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    overflow-x: auto;
+}
+
+/* Generic list used in features/challenges/videos */
+.list {
+    padding-left: 20px;
+    line-height: 1.5;
+}
+
+/* Image grid */
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.imageItem img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Links section */
 .links {
     display: flex;
     flex-wrap: wrap;
@@ -117,6 +200,12 @@
     text-decoration: underline;
 }
 
+.linkInline {
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+/* Footer & error */
 .footer {
     margin-top: 32px;
     font-size: 14px;
@@ -125,3 +214,37 @@
 .error {
     color: #ff6b6b;
 }
+
+.markdown {
+    line-height: 1.6;
+    font-size: 15px;
+    white-space: pre-wrap;
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.markdown ul {
+    padding-left: 20px;
+}
+
+.markdown img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.markdownImage {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+

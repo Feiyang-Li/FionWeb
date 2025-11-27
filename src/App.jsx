@@ -11,11 +11,9 @@ import DataProjectDetailPage from "./pages/Data/DataProjectDetailPage";
 import FinanceProjectDetailPage from './pages/Finance/FinanceProjectDetailPage'
 import BlogDetailPage from './pages/General/BlogDetailPage'
 function App() {
-
   return (
-    <BrowserRouter basename="/FionWeb">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
-        {/* heading */}
         <Route path="/" element={<HomePage />} />
         <Route path="/software" element={<SoftwarePage />} />
         <Route path="/data" element={<DataPage />} />
@@ -23,13 +21,11 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/Blog" element={<BlogPage />} />
 
-        {/* detail page */}
         <Route path="/software/projects/:slug" element={<SoftwareProjectDetailPage />} />
         <Route path="/data/projects/:slug" element={<DataProjectDetailPage />} />
         <Route path="/finance/projects/:slug" element={<FinanceProjectDetailPage />} />
-        <Route path="/blog/analysis/:slug" element={<BlogDetailPage />} /> 
+        <Route path="/blog/analysis/:slug" element={<BlogDetailPage />} />
       </Routes>
-    
     </BrowserRouter>
   )
 }

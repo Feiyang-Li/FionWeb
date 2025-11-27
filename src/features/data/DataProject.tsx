@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { fetchDataProjects } from "../../api/client";
 import styles from "./stylesheet/DataProject.module.css";
 
+function withBase(path: string) {
+  const base = import.meta.env.BASE_URL ?? "/";
+  if (!base || base === "/") return path;
+  return base.endsWith("/") && path.startsWith("/") ? base.slice(0, -1) + path : base + path;
+}
+
 export default function DataProject() {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -85,7 +91,7 @@ export default function DataProject() {
 
               <footer className={styles.cardFooter}>
                 {project.slug && (
-                  <a className={styles.linkButtonGhost} href={`/data/projects/${project.slug}`}>Project page</a>
+                  <a className={styles.linkButtonGhost} href={withBase(`/data/projects/${project.slug}`)}>Project page</a>
                 )}
                 {project.github_url && (
                   <a className={styles.linkButton} href={project.github_url} target="_blank" rel="noreferrer">GitHub</a>

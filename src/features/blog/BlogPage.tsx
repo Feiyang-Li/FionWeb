@@ -60,20 +60,27 @@ function getDomainColorClass(domain: BlogDomain): string {
     }
 }
 
+// Prefix paths with the Vite base (matches BrowserRouter basename)
+function withBase(path: string) {
+    const base = import.meta.env.BASE_URL ?? "/";
+    if (!base || base === "/") return path;
+    return base.endsWith("/") && path.startsWith("/") ? base.slice(0, -1) + path : base + path;
+}
+
 // Adjust these to match your actual routes
 function getEntryUrl(item: BlogItem): string {
     switch (item.domain) {
         case "software":
-            return `/software/projects/${item.slug}`;
+            return withBase(`/software/projects/${item.slug}`);
         case "data":
-            return `/data/projects/${item.slug}`;
+            return withBase(`/data/projects/${item.slug}`);
         case "finance":
-            return `/finance/projects/${item.slug}`;
+            return withBase(`/finance/projects/${item.slug}`);
         case "analysis":
             // You can change this later to whatever route you use
-            return `/blog/analysis/${item.slug}`;
+            return withBase(`/blog/analysis/${item.slug}`);
         default:
-            return `/${item.domain}/${item.slug}`;
+            return withBase(`/${item.domain}/${item.slug}`);
     }
 }
 

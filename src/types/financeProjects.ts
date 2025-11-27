@@ -1,7 +1,13 @@
 // src/types/financeProjects.ts
 
+export interface AttachmentNode {
+    type: string; // e.g. "pdf", "excel", "image"
+    name: string; // display name, e.g. "DCF Model.xlsx"
+    url: string;  // link to the file
+}
+
 export interface FinanceProject {
-    // Mongo / backend identifiers (optional, depending on how you serialize)
+    // Mongo / backend identifiers (optional)
     id?: string;
     _id?: { $oid: string } | string;
 
@@ -9,34 +15,34 @@ export interface FinanceProject {
     title: string;
     slug: string;
 
-    summary: string;
-    category: string;          // e.g. "valuation", "risk analysis", "forecasting"
-    status: string;            // "completed" | "in-progress" | ...
+    summary: string;          // default "" in backend
+    category: string;         // e.g. "valuation", "risk analysis", ...
+    status: string;           // default "completed"
 
     // Methodology / tooling
-    tech_stack: string[];      // e.g. ["Python", "Pandas"]
-    methods: string[];         // e.g. ["DCF", "Monte Carlo"]
-    assumptions: string[];     // key assumptions
+    tech_stack: string[];     // default []
+    methods: string[];        // default []
+    assumptions: string[];    // default []
 
     // Metrics & charts
-    key_metrics: Record<string, unknown>; // flexible: EV/EBITDA, IRR, VaR, etc.
-    charts: string[];                     // chart URLs or identifiers
+    key_metrics: Record<string, any>; // matches Dict[str, Any]
+    charts: string[];                 // chart URLs or names
 
     // Main analysis content
-    analysis_markdown: string;   // long-form markdown report
-    analysis_sections: string[]; // section titles or per-section markdown ids
+    analysis_markdown: string;   // default ""
+    analysis_sections: string[]; // default []
 
     // Assets
-    attachments: string[];       // file names / URLs to PDFs, Excel, etc.
-    images: string[];            // image URLs
-    videos: string[];            // video URLs or IDs
+    attachments: AttachmentNode[]; // 🔄 updated to match backend
+    images: string[];
+    videos: string[];
 
     // Tags / metadata
     tags: string[];
 
-    start_date?: string | null;
-    end_date?: string | null;
-    created_at?: string | null;
+    start_date?: string | null;   // backend Optional[str] = ""
+    end_date?: string | null;     // backend Optional[str] = ""
+    created_at?: string | null;   // backend Optional[str] = ""
 
-    private: boolean;
+    private: boolean;             // backend default True
 }

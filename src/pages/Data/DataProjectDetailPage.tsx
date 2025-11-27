@@ -196,7 +196,6 @@ export default function DataProjectDetailPage() {
                             </ul>
                         </section>
                     )}
-
                     {/* Links */}
                     {(github_url || demo_url) && (
                         <section>
@@ -223,6 +222,8 @@ export default function DataProjectDetailPage() {
                             </div>
                         </section>
                     )}
+
+
                 </main>
 
                 <footer className={styles.footer}>

@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { fetchFinanceProjects } from "../../api/client";
 import styles from "./stylesheet/FinanceProject.module.css";
 
+function withBase(path: string) {
+  const base = import.meta.env.BASE_URL ?? "/";
+  if (!base || base === "/") return path;
+  return base.endsWith("/") && path.startsWith("/") ? base.slice(0, -1) + path : base + path;
+}
+
 export default function FinanceProject() {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -56,7 +62,7 @@ export default function FinanceProject() {
               {project.description_markdown && <p className={styles.projectDescription}>{getDescriptionSnippet(project.description_markdown)}</p>}
               {project.tech_stack?.length > 0 && <div className={styles.techRow}><span className={styles.sectionLabel}>Tech:</span><div className={styles.techChips}>{project.tech_stack.map((t: string) => <span key={t} className={styles.techChip}>{t}</span>)}</div></div>}
               <footer className={styles.cardFooter}>
-                {project.slug && <a className={styles.linkButtonGhost} href={`/finance/projects/${project.slug}`}>Project page</a>}
+                {project.slug && <a className={styles.linkButtonGhost} href={withBase(`/finance/projects/${project.slug}`)}>Project page</a>}
                 {project.github_url && <a className={styles.linkButton} href={project.github_url} target="_blank" rel="noreferrer">GitHub</a>}
                 {project.demo_url && <a className={styles.linkButtonSecondary} href={project.demo_url} target="_blank" rel="noreferrer">Live Demo</a>}
               </footer>

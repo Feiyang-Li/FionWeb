@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from "./stylesheet/SoftwareProject.module.css";
 import { fetchSoftwareProjects } from "../../api/client.js";
+
+function withBase(path: string) {
+  const base = import.meta.env.BASE_URL ?? "/";
+  if (!base || base === "/") return path;
+  return base.endsWith("/") && path.startsWith("/") ? base.slice(0, -1) + path : base + path;
+}
 // import type { SoftwareProject } from "../../types/softwareProject";
 
 export default function SoftwareProject() {
@@ -138,7 +144,7 @@ export default function SoftwareProject() {
                 {project.slug && (
                   <a
                     className={styles.linkButtonGhost}
-                    href={`/software/projects/${project.slug}`}
+                    href={withBase(`/software/projects/${project.slug}`)}
                   >
                     Project page
                   </a>
