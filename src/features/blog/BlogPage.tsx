@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar";
+import { Link } from "react-router-dom";
 import styles from "./BlogPage.module.css";
 
 import {
@@ -60,27 +61,19 @@ function getDomainColorClass(domain: BlogDomain): string {
     }
 }
 
-// Prefix paths with the Vite base (matches BrowserRouter basename)
-function withBase(path: string) {
-    const base = import.meta.env.BASE_URL ?? "/";
-    if (!base || base === "/") return path;
-    return base.endsWith("/") && path.startsWith("/") ? base.slice(0, -1) + path : base + path;
-}
-
-// Adjust these to match your actual routes
+// Return internal route paths (use react-router `Link` to navigate)
 function getEntryUrl(item: BlogItem): string {
     switch (item.domain) {
         case "software":
-            return withBase(`/software/projects/${item.slug}`);
+            return `/software/projects/${item.slug}`;
         case "data":
-            return withBase(`/data/projects/${item.slug}`);
+            return `/data/projects/${item.slug}`;
         case "finance":
-            return withBase(`/finance/projects/${item.slug}`);
+            return `/finance/projects/${item.slug}`;
         case "analysis":
-            // You can change this later to whatever route you use
-            return withBase(`/blog/analysis/${item.slug}`);
+            return `/blog/analysis/${item.slug}`;
         default:
-            return withBase(`/${item.domain}/${item.slug}`);
+            return `/${item.domain}/${item.slug}`;
     }
 }
 
@@ -238,12 +231,9 @@ export default function BlogPage() {
                                 )}
 
                                 <div className={styles.cardFooter}>
-                                    <a
-                                        href={getEntryUrl(item)}
-                                        className={styles.readMoreLink}
-                                    >
+                                    <Link to={getEntryUrl(item)} className={styles.readMoreLink}>
                                         Read more →
-                                    </a>
+                                    </Link>
                                 </div>
                             </article>
                         ))}

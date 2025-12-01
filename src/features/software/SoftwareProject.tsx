@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./stylesheet/SoftwareProject.module.css";
 import { fetchSoftwareProjects } from "../../api/client.js";
 
-function withBase(path: string) {
-  const base = import.meta.env.BASE_URL ?? "/";
-  if (!base || base === "/") return path;
-  return base.endsWith("/") && path.startsWith("/")
-    ? base.slice(0, -1) + path
-    : base + path;
-}
+// Internal links should use react-router `Link` so HashRouter handles routing.
 
 // helper to safely convert date strings to timestamps
 function toTime(value?: string | null): number {
@@ -147,12 +142,12 @@ export default function SoftwareProject() {
 
               <footer className={styles.cardFooter}>
                 {project.slug && (
-                  <a
+                  <Link
                     className={styles.linkButtonGhost}
-                    href={withBase(`/software/projects/${project.slug}`)}
+                    to={`/software/projects/${project.slug}`}
                   >
                     Project page
-                  </a>
+                  </Link>
                 )}
 
                 {project.github_url && (

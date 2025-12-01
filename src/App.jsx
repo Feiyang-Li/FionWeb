@@ -12,7 +12,7 @@ import FinanceProjectDetailPage from './pages/Finance/FinanceProjectDetailPage'
 import BlogDetailPage from './pages/General/BlogDetailPage'
 function App() {
   return (
-    <HashRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/software" element={<SoftwarePage />} />

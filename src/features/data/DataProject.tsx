@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchDataProjects } from "../../api/client";
 import styles from "./stylesheet/DataProject.module.css";
 
-function withBase(path: string) {
-  const base = import.meta.env.BASE_URL ?? "/";
-  if (!base || base === "/") return path;
-  return base.endsWith("/") && path.startsWith("/") ? base.slice(0, -1) + path : base + path;
-}
+// Use react-router `Link` for internal navigation so HashRouter handles routing.
 
 export default function DataProject() {
   const [projects, setProjects] = useState<any[]>([]);
@@ -91,7 +88,9 @@ export default function DataProject() {
 
               <footer className={styles.cardFooter}>
                 {project.slug && (
-                  <a className={styles.linkButtonGhost} href={withBase(`/data/projects/${project.slug}`)}>Project page</a>
+                  <Link className={styles.linkButtonGhost} to={`/data/projects/${project.slug}`}>
+                    Project page
+                  </Link>
                 )}
                 {project.github_url && (
                   <a className={styles.linkButton} href={project.github_url} target="_blank" rel="noreferrer">GitHub</a>
