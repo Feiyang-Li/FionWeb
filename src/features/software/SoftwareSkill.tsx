@@ -83,13 +83,13 @@ export default function SoftwareSkillSection() {
               </div>
             )}
 
-            {skill.certification_related?.length > 0 && (
+            {skill.certifications_related?.length > 0 && (
               <div className={styles.skillCerts}>
                 <span className={styles.sectionLabel}>
                   Related certifications:
                 </span>
                 <div className={styles.certList}>
-                  {skill.certification_related.map((c) => (
+                  {skill.certifications_related.map((c) => (
                     <span key={c} className={styles.certChip}>
                       {c}
                     </span>

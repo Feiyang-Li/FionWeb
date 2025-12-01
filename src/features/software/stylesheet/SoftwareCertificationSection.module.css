@@ -147,3 +147,22 @@
     background-color: var(--fontB-color-primary);
     transition-duration: 0.25s;
 }
+
+/* NEW: logo image in header */
+.certLogo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 2px;
+}
+
+/* NEW: row for domain + status */
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}

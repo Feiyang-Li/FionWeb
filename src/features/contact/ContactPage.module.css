@@ -14,7 +14,7 @@
     position: fixed;
     inset: 0;
     z-index: -2;
-    background-image: url("starNightPic.jpg"); /* TODO: replace with your image path */
+    background-image: url("https://res.cloudinary.com/dsd2rjevs/image/upload/v1764302484/starNightPic_yx3cex.jpg"); /* TODO: replace with your image path */
     background-size: cover;
     background-position: center;
     filter: blur(10px);

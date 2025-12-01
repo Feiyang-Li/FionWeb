@@ -9,6 +9,7 @@ export interface Certificant {
   id: string;                     // MongoDB ObjectId as string
   name: string;
   slug: string;
+  logo: string | null;
   issuer: string;
   domain: string;                 // software | data | finance | etc.
   status: string;                 // "completed" | "in-progress"

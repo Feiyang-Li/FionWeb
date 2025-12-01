@@ -5,40 +5,46 @@ import { fetchSoftwareProjects } from "../../api/client.js";
 function withBase(path: string) {
   const base = import.meta.env.BASE_URL ?? "/";
   if (!base || base === "/") return path;
-  return base.endsWith("/") && path.startsWith("/") ? base.slice(0, -1) + path : base + path;
+  return base.endsWith("/") && path.startsWith("/")
+    ? base.slice(0, -1) + path
+    : base + path;
 }
-// import type { SoftwareProject } from "../../types/softwareProject";
+
+// helper to safely convert date strings to timestamps
+function toTime(value?: string | null): number {
+  if (!value) return 0;
+  const t = Date.parse(value);
+  return Number.isNaN(t) ? 0 : t;
+}
 
 export default function SoftwareProject() {
-  const [projects, setProjects] = useState([]); // <SoftwareProject[]> if typed
+  const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
+  useEffect(() => {
     async function loadProjects() {
-        try {
+      try {
         setLoading(true);
 
         const data = await fetchSoftwareProjects();
-
-        // sort projects by start date: earliest → latest
         data.sort((a: any, b: any) => {
-            const dateA = new Date(a.start_date || 0).getTime();
-            const dateB = new Date(b.start_date || 0).getTime();
-            return dateB - dateA;
+          const timeA = toTime(a.created_at || a.start_date);
+          const timeB = toTime(b.created_at || b.start_date);
+          return timeB - timeA; // latest first
         });
 
         setProjects(data);
-        } catch (err: any) {
+      } catch (err: any) {
         console.error(err);
         setError(err.message ?? "Failed to load projects");
-        } finally {
+      } finally {
         setLoading(false);
-        }
+      }
     }
 
     loadProjects();
-    }, []);
+  }, []);
 
   if (loading) {
     return <div className={styles.loading}>Loading software projects...</div>;
@@ -56,7 +62,7 @@ export default function SoftwareProject() {
   const getDescriptionSnippet = (markdown?: string, length = 220) => {
     if (!markdown) return "";
     const plain = markdown
-      .replace(/[#*_`>-]/g, "")  // strip basic markdown chars
+      .replace(/[#*_`>-]/g, "") // strip basic markdown chars
       .replace(/\[(.*?)\]\(.*?\)/g, "$1"); // [text](link) -> text
     if (plain.length <= length) return plain;
     return plain.slice(0, length) + "…";
@@ -140,7 +146,6 @@ export default function SoftwareProject() {
               )}
 
               <footer className={styles.cardFooter}>
-                {/* Internal link based on slug (for your future project page) */}
                 {project.slug && (
                   <a
                     className={styles.linkButtonGhost}

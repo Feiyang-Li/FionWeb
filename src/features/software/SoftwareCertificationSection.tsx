@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {fetchCertificationsOnDomain} from "../../api/client.js";
+import { fetchCertificationsOnDomain } from "../../api/client.js";
 import styles from "./stylesheet/SoftwareCertificationSection.module.css";
 import type { Certificant } from "../../types/certificant";
 
@@ -12,7 +12,6 @@ export default function SoftwareCertificationSection() {
     async function loadCerts() {
       try {
         setLoading(true);
-        // assuming your helper takes a domain like "software"
         const data = await fetchCertificationsOnDomain("software");
         setCerts(data);
       } catch (err: any) {
@@ -27,11 +26,7 @@ export default function SoftwareCertificationSection() {
   }, []);
 
   if (loading) {
-    return (
-      <div className={styles.tempLoading}>
-        Loading certifications...
-      </div>
-    );
+    return <div className={styles.tempLoading}>Loading certifications...</div>;
   }
 
   if (error) {
@@ -41,7 +36,8 @@ export default function SoftwareCertificationSection() {
       </p>
     );
   }
-
+  
+    console.log(certs);
   return (
     <section className={styles.certSection}>
       {certs.length === 0 && (
@@ -56,19 +52,29 @@ export default function SoftwareCertificationSection() {
                 <h3 className={styles.certName}>{cert.name}</h3>
                 <p className={styles.certIssuer}>{cert.issuer}</p>
               </div>
+
               <div className={styles.certMeta}>
-                {cert.domain && (
-                  <span className={styles.domainPill}>{cert.domain}</span>
+                {cert.logo && cert.logo.trim() !== "" && (
+                  <img
+                    src={cert.logo}
+                    alt={`${cert.name} logo`}
+                    className={styles.certLogo}
+                  />
                 )}
-                <span
-                  className={`${styles.statusBadge} ${
-                    cert.status === "completed"
-                      ? styles.statusCompleted
-                      : styles.statusInProgress
-                  }`}
-                >
-                  {cert.status}
-                </span>
+                <div className={styles.metaRow}>
+                  {cert.domain && (
+                    <span className={styles.domainPill}>{cert.domain}</span>
+                  )}
+                  <span
+                    className={`${styles.statusBadge} ${
+                      cert.status === "completed"
+                        ? styles.statusCompleted
+                        : styles.statusInProgress
+                    }`}
+                  >
+                    {cert.status}
+                  </span>
+                </div>
               </div>
             </header>
 
@@ -109,9 +115,7 @@ export default function SoftwareCertificationSection() {
 
             {cert.related_projects?.length > 0 && (
               <div className={styles.certProjects}>
-                <span className={styles.sectionLabel}>
-                  Related projects:
-                </span>
+                <span className={styles.sectionLabel}>Related projects:</span>
                 <div className={styles.projectChipRow}>
                   {cert.related_projects.map((p) => (
                     <span

@@ -12,5 +12,5 @@ export interface SoftwareSkill{
     description?: string | null;
     keywords: string[];
     used_in_projects: ProjectReference[];
-    certification_related: string[];
+    certifications_related: string[];
 }
