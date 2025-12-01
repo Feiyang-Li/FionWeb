@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import HomePage from './features/home/HomePage'
 import FinancePage from './features/finance/FinancePage'
 import DataPage from './features/data/DataPage'
@@ -12,7 +12,7 @@ import FinanceProjectDetailPage from './pages/Finance/FinanceProjectDetailPage'
 import BlogDetailPage from './pages/General/BlogDetailPage'
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/software" element={<SoftwarePage />} />
@@ -26,7 +26,7 @@ function App() {
         <Route path="/finance/projects/:slug" element={<FinanceProjectDetailPage />} />
         <Route path="/blog/analysis/:slug" element={<BlogDetailPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
