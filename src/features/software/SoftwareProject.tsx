@@ -24,8 +24,8 @@ export default function SoftwareProject() {
 
         const data = await fetchSoftwareProjects();
         data.sort((a: any, b: any) => {
-          const timeA = toTime(a.created_at || a.start_date);
-          const timeB = toTime(b.created_at || b.start_date);
+          const timeA = toTime(a.start_date || a.created_at);
+          const timeB = toTime(b.start_date || b.created_at);
           return timeB - timeA; // latest first
         });
 
