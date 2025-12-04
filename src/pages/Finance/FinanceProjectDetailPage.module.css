@@ -181,3 +181,43 @@
 .error {
     color: #ff6b6b;
 }
+/* Markdown content (same visual feel as software detail page) */
+.markdown {
+    line-height: 1.7;
+    font-size: 14px;
+    opacity: 0.97;
+}
+
+.markdown p {
+    margin-bottom: 0.75rem;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+    margin: 1.2rem 0 0.6rem;
+    font-weight: 600;
+}
+
+.markdown ul,
+.markdown ol {
+    padding-left: 20px;
+    margin-bottom: 0.75rem;
+}
+
+.markdown li {
+    margin-bottom: 0.25rem;
+}
+
+.markdown a {
+    text-decoration: underline;
+}
+
+.markdownImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 12px 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}

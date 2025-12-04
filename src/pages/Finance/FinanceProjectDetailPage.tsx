@@ -7,6 +7,12 @@ import { fetchFinanceProjBySlug } from "../../api/client";
 import type { FinanceProject } from "../../types/financeProjects";
 import styles from "./FinanceProjectDetailPage.module.css";
 
+// ⬇️ NEW: markdown imports (same as SoftwareProjectDetailPage)
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize from "rehype-sanitize";
+
 export default function FinanceProjectDetailPage() {
     const { slug } = useParams<{ slug: string }>();
     const [project, setProject] = useState<FinanceProject | null>(null);
@@ -96,12 +102,14 @@ export default function FinanceProjectDetailPage() {
                     <div className={styles.meta}>
                         {category && (
                             <p>
-                                <span>Category: </span>{category}
+                                <span>Category: </span>
+                                {category}
                             </p>
                         )}
                         {status && (
                             <p>
-                                <span>Status: </span>{status}
+                                <span>Status: </span>
+                                {status}
                             </p>
                         )}
                         {(displayStart || displayEnd) && (
@@ -112,7 +120,8 @@ export default function FinanceProjectDetailPage() {
                         )}
                         {created && (
                             <p>
-                                <span>Created: </span>{created}
+                                <span>Created: </span>
+                                {created}
                             </p>
                         )}
                         {isPrivate && (
@@ -190,9 +199,7 @@ export default function FinanceProjectDetailPage() {
                                     {Object.entries(key_metrics).map(([k, v]) => (
                                         <tr key={k}>
                                             <td className={styles.metricKey}>{k}</td>
-                                            <td className={styles.metricValue}>
-                                                {String(v)}
-                                            </td>
+                                            <td className={styles.metricValue}>{String(v)}</td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -212,14 +219,26 @@ export default function FinanceProjectDetailPage() {
                         </section>
                     )}
 
-                    {/* Analysis content */}
+                    {/* Analysis content (Markdown) */}
                     {analysis_markdown && (
                         <section className={styles.section}>
                             <h2 className={styles.sectionTitle}>Analysis</h2>
-                            {/* If you use react-markdown, you can swap this out */}
-                            {/* <ReactMarkdown className={styles.markdown}>{analysis_markdown}</ReactMarkdown> */}
-                            <div className={styles.markdownFallback}>
-                                {analysis_markdown}
+                            <div className={styles.markdown}>
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    rehypePlugins={[rehypeRaw, rehypeSanitize]}
+                                    components={{
+                                        img: ({ src, alt }) => (
+                                            <img
+                                                src={src!}
+                                                alt={alt}
+                                                className={styles.markdownImage}
+                                            />
+                                        ),
+                                    }}
+                                >
+                                    {analysis_markdown}
+                                </ReactMarkdown>
                             </div>
                         </section>
                     )}
